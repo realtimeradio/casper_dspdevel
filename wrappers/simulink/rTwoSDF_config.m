@@ -59,8 +59,7 @@ function rTwoSDF_config(this_block)
 
   % -----------------------------
   if (this_block.inputTypesKnown)
-        % do input type checking, dynamic output type and generic setup in this code block.
-
+    % do input type checking, dynamic output type and generic setup in this code block.
     %rst
     if (in_rst_port.width ~= 1);
       this_block.setError('Input data type for port "rst" must have width=1.');
@@ -69,11 +68,11 @@ function rTwoSDF_config(this_block)
 
     %in_re
     in_re_port.useHDLVector(true);
-    in_re_port.setWidth(i_d_w);
+    in_re_port.setWidth(str2num(i_d_w));
 
     %in_im
     in_im_port.useHDLVector(true);
-    in_im_port.setWidth(i_d_w);
+    in_im_port.setWidth(str2num(i_d_w));
 
     %in_val
     if (in_val_port.width ~= 1);
@@ -83,11 +82,11 @@ function rTwoSDF_config(this_block)
     
     %out_re
     out_re_port.useHDLVector(true);
-    out_re_port.setWidth(o_d_w);
+    out_re_port.setWidth(str2num(o_d_w));
     
     %out_im
     out_im_port.useHDLVector(true);
-    out_im_port.setWidth(o_d_w);
+    out_im_port.setWidth(str2num(o_d_w));
   end  % if(inputTypesKnown)
   % -----------------------------
 
