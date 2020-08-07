@@ -57,6 +57,12 @@ function rTwoSDF_config(this_block)
   tech = get_param(r2sdf_blk_parent,'g_technology');
   device = get_param(r2sdf_blk_parent,'g_device');
 
+  if strcmp(use_reorder, 'on')
+    use_reorder_bool = 'TRUE';
+  else
+    use_reorder_bool = 'FALSE';
+  end
+
   % -----------------------------
   if (this_block.inputTypesKnown)
     % do input type checking, dynamic output type and generic setup in this code block.
@@ -100,7 +106,7 @@ function rTwoSDF_config(this_block)
 
   %set up generics:
   this_block.addGeneric('g_nof_chan','integer',nof_chan);
-  this_block.addGeneric('g_use_reorder','boolean',use_reorder);
+  this_block.addGeneric('g_use_reorder','boolean', use_reorder_bool);
   this_block.addGeneric('g_in_dat_w','integer',i_d_w);
   this_block.addGeneric('g_out_dat_w','integer',o_d_w);
   this_block.addGeneric('g_stage_dat_w','integer',s_d_w);
